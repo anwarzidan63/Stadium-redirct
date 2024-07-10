@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL Redirection</title>
+  <script src="redirect.js"></script>
+</head>
+<body>
+  <h1>Click the button to be redirected!</h1>
+  <button id="redirectButton">Redirect</button>
+</body>
+</html>
+<script>
+    const redirectButton = document.getElementById("redirectButton");
+const urlParams = new URLSearchParams(window.location.search);
+const redirectUrl = urlParams.get("url");
+
+redirectButton.addEventListener("click", () => {
+  if (redirectUrl) {
+    window.location.href = redirectUrl;
+  } else {
+    alert("No URL provided for redirection.");
+  }
+});
+</script>
